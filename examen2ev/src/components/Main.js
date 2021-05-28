@@ -5,6 +5,7 @@ import './Main.css';
 
 class Main extends React.Component {
     constructor(props) {
+
         super(props);
         this.state = {
             title: "Welcome to the IT world"
@@ -15,11 +16,11 @@ class Main extends React.Component {
         this.setState({title: "Already in!"});
         console.log("Change for exercise 3, done");
     }    
+    callMe = (text) => {
+        this.setState({title: text});
+    }
     
     render() {
-        const callMe = (text) => {
-            this.setState({title: text});
-        }
 
         const btnMargin = {
             marginBottom: 10
@@ -30,7 +31,7 @@ class Main extends React.Component {
                 <h1>{this.state.title}</h1>
                 <NavLink to={'/Ejercicio1'} style={btnMargin}><button>Exercise 2 and 5</button></NavLink>
                 <NavLink to={'/EXSeconView'} style={btnMargin}><button>Exercise 4</button></NavLink>              
-                <EXButton onClick={() => callMe("Here button. I called you!")} title='Exercise 6'></EXButton>  
+                <EXButton onClick={() => this.callMe("Here button. I called you!")} title='Exercise 6'></EXButton>  
             </div>
         )
     }

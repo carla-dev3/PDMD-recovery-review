@@ -2,14 +2,20 @@ import EXButton from "./EXButton";
 import * as React from 'react';
 
 class PrincialView extends React.Component {
+    constructor(props) {
+        super(props);
+        this.justDoIt = React.createRef();
+    }
+
+    justDoIt() {
+        console.log("Exercise 5 done!");
+    }
 
     render() {
-        const justDoIt = () => {
-            console.log("Exercise 5 done!");
-        }
+        
         return(
             <div>
-                <EXButton onClick={justDoIt} title= 'Listo para hacer clic'></EXButton>
+                <EXButton ref = {this.justDoIt } title= 'Listo para hacer clic'></EXButton>
             </div>
 
         );
